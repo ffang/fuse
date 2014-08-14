@@ -426,6 +426,7 @@
                                    <descriptor>file:${basedir}/target/classes/fabric-features.xml</descriptor>
                                </descriptors>
                                <features>
+                                   <feature>cxf/3.0.1</feature>
                                    <feature>karaf</feature>
                                    <feature>scr</feature>
                                    <feature>war</feature>

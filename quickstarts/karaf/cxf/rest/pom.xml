@@ -56,7 +56,7 @@
         <!-- the version of the BOM, defining all the dependency versions -->
         <fabric8.bom.version>1.1.0-SNAPSHOT</fabric8.bom.version>
         <fabric.version>1.1.0-SNAPSHOT</fabric.version>
-        <cxf-version-range>[2.7,3)</cxf-version-range>
+        <cxf-version-range>[3.0,3.1)</cxf-version-range>
 
         <!-- fabric8 deploy profile configuration -->
         <fabric8.profile>quickstarts-karaf-cxf-rest</fabric8.profile>
@@ -86,12 +86,12 @@
 
     <dependencies>
         <!--
-            For coding the example, we don't actually depend on any CXF classes - we only use the JAX-RS (JSR-311)
+            For coding the example, we don't actually depend on any CXF classes - we only use the JAX-RS (JSR-339)
             standard annotations and API
         -->
         <dependency>
             <groupId>org.apache.servicemix.specs</groupId>
-            <artifactId>org.apache.servicemix.specs.jsr311-api-1.1.1</artifactId>
+            <artifactId>org.apache.servicemix.specs.jsr339-api-2.0</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -192,7 +192,9 @@
                             io.fabric8.cxf,
                             com.fasterxml.jackson.annotation, com.fasterxml.jackson.core, com.fasterxml.jackson.databind, com.fasterxml.jackson.jaxrs.json, javax.ws.rs.ext,*
                         </Import-Package>
-                        <Import-Service>org.apache.cxf.transport.http.DestinationRegistry</Import-Service>
+                        <Import-Service>org.apache.aries.blueprint.NamespaceHandler;
+                osgi.service.blueprint.namespace=http://cxf.apache.org/transports/http/configuration
+                        </Import-Service>
                         <Export-Package>
                             io.fabric8.quickstarts.rest
                         </Export-Package>                       
